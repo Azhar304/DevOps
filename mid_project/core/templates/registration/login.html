@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Login - Mid Project{% endblock %}
+
+{% block content %}
+<div class="col-md-4 mx-auto">
+  <h2 class="text-center mb-4">Login</h2>
+
+  {% if form.errors %}
+    <div class="alert alert-danger">Invalid username or password.</div>
+  {% endif %}
+
+  <form method="post" class="card card-body shadow-sm">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-dark w-100 mt-3">Login</button>
+  </form>
+
+  <div class="text-center mt-3">
+    <p>Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
+    <p><a href="/">Back to Home</a></p>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Home - Mid Project{% endblock %}
+
+{% block content %}
+<div class="text-center">
+  <h1 class="mb-4">Welcome to Mid Project</h1>
+
+  {% if user.is_authenticated %}
+    <p class="lead">Hello, <strong>{{ user.username }}</strong>! You are logged in.</p>
+    <p>Explore your dashboard or enjoy the demo!</p>
+  {% else %}
+    <p class="lead">Join our community or log in to continue.</p>
+    <a href="{% url 'login' %}" class="btn btn-primary btn-lg mx-2">Login</a>
+    <a href="{% url 'signup' %}" class="btn btn-success btn-lg mx-2">Sign Up</a>
+  {% endif %}
+</div>
+{% endblock %}
